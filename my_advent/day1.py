@@ -2,6 +2,8 @@ from typing import List
 
 from my_advent import *
 
+DAY = 1
+
 
 def analyse_deepening(scan_report: List[int]) -> int:
     deeper_count = 0
@@ -37,7 +39,7 @@ def solve_b(puzzle, inp):
 
 
 if __name__ == "__main__":
-    puzzle_obj, report = get_today(1)
-    report = [int(scan) for scan in report]
-    # solve_a(puzzle_obj, report)
-    # solve_b(puzzle_obj, report)
+    puzzle_obj, inp_list = get_today(DAY)
+    inp_list = [int(scan) for scan in inp_list]
+    # solve_a(puzzle_obj, inp_list)
+    # solve_b(puzzle_obj, inp_list)
