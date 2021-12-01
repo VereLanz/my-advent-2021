@@ -2,12 +2,12 @@
 Using the utility library [advent-of-code-data](https://github.com/wimglenn/advent-of-code-data).
 
 ---
-## Day 1 - Seafloor Depth
-### A
+## Day 1 - Sonar Sweep (Seafloor Depth)
+### Part One
 You get a seafloor depth scan report. 
 Find out how many measurements are larger (deeper) than the previous.
 
-### B
+### Part Two
 Group the seafloor depth scan values into groups of three (sum) and
 find out how many measurement *groups* are larger (deeper) than the previous.
 
@@ -18,10 +18,10 @@ find out how many measurement *groups* are larger (deeper) than the previous.
 
 ---
 ## Day Nr. - <name>
-### A
+### Part One
 Short description just for memory...
 
-### B
+### Part Two
 Short description just for memory...
 
 -->
