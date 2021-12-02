@@ -1,6 +1,6 @@
 from typing import List
 
-from my_advent import *
+from my_advent import get_todays_puzzle, MyPuzzle
 
 DAY = 1
 
@@ -15,9 +15,9 @@ def analyse_deepening(scan_report: List[int]) -> int:
     return deeper_count
 
 
-def solve_a(puzzle, inp):
-    answer_a = analyse_deepening(inp)
-    submit_a(puzzle, answer_a)
+def solve_a(puzzle: MyPuzzle):
+    answer_a = analyse_deepening(puzzle.input_lines)
+    puzzle.submit_a(answer_a)
 
 
 def group_report_scans(scan_report: List[int]) -> List[int]:
@@ -32,14 +32,14 @@ def group_report_scans(scan_report: List[int]) -> List[int]:
     return grouped_scans
 
 
-def solve_b(puzzle, inp):
-    grouped_scans = group_report_scans(inp)
+def solve_b(puzzle: MyPuzzle):
+    grouped_scans = group_report_scans(puzzle.input_lines)
     answer_b = analyse_deepening(grouped_scans)
-    submit_b(puzzle, answer_b)
+    puzzle.submit_b(answer_b)
 
 
 if __name__ == "__main__":
-    puzzle_obj, inp_list = get_today(DAY)
-    inp_list = [int(scan) for scan in inp_list]
-    # solve_a(puzzle_obj, inp_list)
-    # solve_b(puzzle_obj, inp_list)
+    my_puzzle = get_todays_puzzle(DAY)
+    my_puzzle.input_lines = [int(scan) for scan in my_puzzle.input_lines]
+    # solve_a(my_puzzle)
+    # solve_b(my_puzzle)
