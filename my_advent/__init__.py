@@ -4,16 +4,18 @@ from typing import Any
 from aocd.models import Puzzle
 
 
-def get_today(day: int, year: int = 2021):
-    puzzle = Puzzle(year=year, day=day)
-    input_lines = puzzle.input_data.splitlines()
-    return puzzle, input_lines
+class MyPuzzle(Puzzle):
+    def __init__(self, year: int, day: int):
+        super().__init__(year=year, day=day)
+        self.input_lines = self.input_data.splitlines()
+
+    def submit_a(self, answer: Any):
+        self.answer_a = answer
+
+    def submit_b(self, answer: Any):
+        self.answer_b = answer
 
 
-# i just prefer submitting via function, not as setting an attribute...
-def submit_a(puzzle: Puzzle, answer: Any):
-    puzzle.answer_a = answer
-
-
-def submit_b(puzzle: Puzzle, answer: Any):
-    puzzle.answer_b = answer
+def get_todays_puzzle(day: int, year: int = 2021):
+    my_puzzle = MyPuzzle(year=year, day=day)
+    return my_puzzle
