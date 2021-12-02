@@ -6,15 +6,13 @@ DAY = 0
 
 
 def solve_a(puzzle: MyPuzzle):
-    # puzzle.input_list
-    # answer_a =
+    # answer_a = (puzzle.input_lines)
     # puzzle.submit_a(answer_a)
     pass
 
 
 def solve_b(puzzle: MyPuzzle):
-    # puzzle.input_list
-    # answer_b =
+    # answer_b = (puzzle.input_lines)
     # puzzle.submit_b(answer_b)
     pass
 
