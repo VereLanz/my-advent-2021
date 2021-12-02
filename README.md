@@ -13,16 +13,31 @@ find out how many measurement *groups* are larger (deeper) than the previous.
 
 
 
+---
+## Day 2 - Dive! (Submarine Steering)
+### Part One
+Follow the steering instructions given for your submarine (starting at (0, 0)) 
+and multiply the final horizontal and vertical positions.
+
+### Part Two
+The steering works different from what was assumed! 
+The behaviours of the input commands are different, calculate the positions anew.
+
+
+
+
+
+
 
 <!---Daily Template
 
 ---
 ## Day Nr. - <name>
 ### Part One
-Short description just for memory...
+Short description...
 
 ### Part Two
-Short description just for memory...
+Short description...
 
 -->
 
