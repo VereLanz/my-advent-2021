@@ -1,4 +1,3 @@
-# This file can be copied to start each day even easier!
 from typing import List
 
 from my_advent import get_todays_puzzle, MyPuzzle

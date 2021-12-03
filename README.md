@@ -25,6 +25,17 @@ The behaviours of the input commands have changed, calculate the positions anew.
 
 
 
+---
+## Day 3 - Binary Diagnostic (Submarine Diagnosing)
+### Part One
+Submarine diagnostic report gives you some binary numbers. Figure out the two needed
+binary numbers by determining for each bit if more numbers in da report have a 0 or a 1
+in that spot. Multiply those two resulting binaries for the submarine's 
+power consumption.
+
+### Part Two
+Short description...
+
 
 
 
