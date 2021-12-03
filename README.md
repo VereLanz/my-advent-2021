@@ -34,7 +34,8 @@ in that spot. Multiply those two resulting binaries for the submarine's
 power consumption.
 
 ### Part Two
-Short description...
+From the diagnostic report, first filter out values step by step if they don't 
+have the right bit. Then calculate the two new numbers like in Part One.
 
 
 
