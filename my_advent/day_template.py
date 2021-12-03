@@ -7,15 +7,13 @@ DAY = 0
 
 
 def solve_a(puzzle: MyPuzzle):
-    # answer_a = (puzzle.input_lines)
+    answer_a = (puzzle.input_lines)
     # puzzle.submit_a(answer_a)
-    pass
 
 
 def solve_b(puzzle: MyPuzzle):
-    # answer_b = (puzzle.input_lines)
+    answer_b = (puzzle.input_lines)
     # puzzle.submit_b(answer_b)
-    pass
 
 
 if __name__ == "__main__":
