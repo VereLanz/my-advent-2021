@@ -9,6 +9,7 @@ setup(
     description="My Advent of Code 2021",
     install_requires=[
         "advent-of-code-data",
+        "numpy",
     ],
     tests_require=[
         "pytest",

@@ -26,9 +26,9 @@ The behaviours of the input commands have changed, calculate the positions anew.
 
 
 ---
-## Day 3 - Binary Diagnostic (Submarine Diagnosing)
+## Day 3 - Binary Diagnostic (Submarine Diagnosis)
 ### Part One
-Submarine diagnostic report gives you some binary numbers. Figure out the two needed
+The submarine's diagnostic report gives you some binary numbers. Figure out the two needed
 binary numbers by determining for each bit if more numbers in da report have a 0 or a 1
 in that spot. Multiply those two resulting binaries for the submarine's 
 power consumption.
@@ -36,6 +36,25 @@ power consumption.
 ### Part Two
 From the diagnostic report, first filter out values step by step if they don't 
 have the right bit. Then calculate the two new numbers like in Part One.
+
+
+
+
+---
+## Day 4 - Giant Squid (Squid Bingo)
+### Part One
+You get some bingo boards and a list of numbers that will be drawn in order.
+Figure out which of the boards will get bingo first and what its score 
+(= sum of non-called numbers) will be.
+
+### Part Two
+On second thought you'd make sure that your opponent (a giant squid) wins,
+so figure out which board will be the last to bingo and calculate it's score.
+
+
+
+
+
 
 
 
