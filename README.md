@@ -16,14 +16,10 @@ Using the utility library [advent-of-code-data](https://github.com/wimglenn/adve
 .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:.
 </span>
 
-```diff
-+ .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:.
-- *:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*
-+.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:.
-```
-
-
 </p>
+
+
+<p align="center">
 
 ||||||
 |:------:|:------:|:------:|:------:|:------:|
@@ -33,6 +29,9 @@ Using the utility library [advent-of-code-data](https://github.com/wimglenn/adve
 | Day 16 | Day 17 | Day 18 | Day 19 | Day 20 |
 | Day 21 | Day 22 | Day 23 | Day 24 | Day 25 |
 ||||||
+
+</p>
+
 
 <p align="center">
 <span style="color:green">
