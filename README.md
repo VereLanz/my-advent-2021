@@ -1,7 +1,8 @@
 # My Advent of Code 2021 <a name="top"></a>
 Using the utility library [advent-of-code-data](https://github.com/wimglenn/advent-of-code-data).
 
-
+<center>
+<span style="font-size:large">
 <span style="color:green">
 .:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:.
 </span>
@@ -23,6 +24,18 @@ Using the utility library [advent-of-code-data](https://github.com/wimglenn/adve
 | Day 21 | Day 22 | Day 23 | Day 24 | Day 25 |
 ||||||
 
+<span style="color:green">
+.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:.
+</span>
+
+<span style="color:red">
+*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*
+</span>
+
+<span style="color:green">
+.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:.
+</span>
+
 <!--
 [Day 5](#day-5)
 | [Day 6](#day-6) | [Day 7](#day-7) | [Day 8](#day-8) | [Day 9](#day-9) | [Day 10](#day-10) |
@@ -32,6 +45,8 @@ Using the utility library [advent-of-code-data](https://github.com/wimglenn/adve
 
 -->
 
+</span>
+</center>
 
 
 ---
