@@ -1,5 +1,7 @@
 # My Advent of Code 2021 <a name="top"></a>
+<!--
 Using the utility library [advent-of-code-data](https://github.com/wimglenn/advent-of-code-data).
+-->
 
 <span style="font-size:large">
 <p align="center">
