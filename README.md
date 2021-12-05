@@ -25,7 +25,7 @@ Using the utility library [advent-of-code-data](https://github.com/wimglenn/adve
 
 ||||||
 |:------:|:------:|:------:|:------:|:------:|
-|    [Day 1](#day-1)    |    [Day 2](#day-2)   |    [Day 3](#day-3)    |    [Day 4](#day-4)    |    Day 5    |
+|    [Day 1](#day-1)    |    [Day 2](#day-2)   |    [Day 3](#day-3)    |    [Day 4](#day-4)    |    [Day 5](#day-5)    |
 | Day 6 | Day 7 | Day 8 | Day 9 | Day 10 |
 | Day 11 | Day 12 | Day 13 | Day 14 | Day 15 |
 | Day 16 | Day 17 | Day 18 | Day 19 | Day 20 |
@@ -52,7 +52,7 @@ Using the utility library [advent-of-code-data](https://github.com/wimglenn/adve
 </span>
 
 <!--
-[Day 5](#day-5)
+
 | [Day 6](#day-6) | [Day 7](#day-7) | [Day 8](#day-8) | [Day 9](#day-9) | [Day 10](#day-10) |
 | [Day 11](#day-11) | [Day 12](#day-12) | [Day 13](#day-13) | [Day 14](#day-14) | [Day 15](#day-15) |
 | [Day 16](#day-16) | [Day 17](#day-17) | [Day 18](#day-18) | [Day 19](#day-19) | [Day 20](#day-20) |
@@ -108,7 +108,6 @@ have the right bit. Then calculate the two new numbers like in Part One.
 
 
 
-
 ---
 ## Day 4
 ### *Giant Squid (Squid Bingo)*
@@ -125,7 +124,18 @@ so figure out which board will be the last to bingo and calculate it's score.
 
 
 
+---
+## Day 5
+### *Hydrothermal Venture (Vent Grid)*
+### Part One
+You get coordinates of start and end points for hydrothermal vent lines.
+First, figure out spots where at least two horizontal or vertical lines overlap.
+(Asked is how many overlaps there are.)
 
+### Part Two
+Now also consider diagonal lines and again check where at least two lines overlap.
+
+[top &#8593;](#top)
 
 
 
