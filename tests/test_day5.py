@@ -22,5 +22,6 @@ def test_example_a():
 
 
 def test_example_b():
-    example_result = 0
-    assert (EXAMPLE_INPUT) == example_result
+    example_result = 12
+    # now with diagonals also considered
+    assert find_overlapping_vents(EXAMPLE_INPUT, diagonals=True) == example_result

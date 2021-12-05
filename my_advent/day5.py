@@ -7,10 +7,9 @@ from my_advent import get_todays_puzzle, MyPuzzle
 DAY = 5
 
 
-def find_overlapping_vents(inputs: List[str]) -> int:
+def find_overlapping_vents(inputs: List[str], diagonals: bool = False) -> int:
     vent_lines = get_vent_coordinates(inputs)
-    vent_coords = get_all_vent_coordinates(vent_lines)
-    print(vent_coords)
+    vent_coords = get_all_vent_coordinates(vent_lines, diagonals=diagonals)
 
     grid_size_x = max([max(line[0][0], line[1][0]) for line in vent_lines]) + 1
     grid_size_y = max([max(line[0][1], line[1][1]) for line in vent_lines]) + 1
@@ -18,7 +17,6 @@ def find_overlapping_vents(inputs: List[str]) -> int:
     for x, y in vent_coords:
         # (x, y) -> array[y][x]
         grid[y][x] += 1
-    print(grid)
 
     overlap_count = len(grid[grid >= 2])
     return overlap_count
@@ -34,12 +32,12 @@ def get_vent_coordinates(inputs: List[str]) -> List[List[Tuple[int, int]]]:
     return vent_lines
 
 
-def get_all_vent_coordinates(vent_lines: List[List[Tuple[int, int]]]) -> List[Tuple[int, int]]:
+def get_all_vent_coordinates(vent_lines: List[List[Tuple[int, int]]], diagonals: bool = False) -> List[Tuple[int, int]]:
     vent_coords = []
     # find all points of a line to the line's coordinates
-    for i in range(len(vent_lines)):
-        start_x, start_y = vent_lines[i][0]
-        end_x, end_y = vent_lines[i][1]
+    for vent_line in vent_lines:
+        start_x, start_y = vent_line[0]
+        end_x, end_y = vent_line[1]
         # vertical line
         if start_x == end_x:
             y = min(start_y, end_y)
@@ -53,7 +51,21 @@ def get_all_vent_coordinates(vent_lines: List[List[Tuple[int, int]]]) -> List[Tu
                 vent_coords.append((x, start_y))
                 x += 1
         # diagonal lines
-        # ignore for now! (part one)
+        else:
+            if not diagonals:  # skip for part one
+                continue
+            x = start_x
+            y = start_y
+            goal = (end_x, end_y)
+            x_mod = np.sign(end_x - start_x)
+            y_mod = np.sign(end_y - start_y)
+            while (x, y) != goal:
+                vent_coords.append((x, y))
+                x += x_mod
+                y += y_mod
+            # add the end point explicitly
+            vent_coords.append((x, y))
+
     return vent_coords
 
 
@@ -63,8 +75,9 @@ def solve_a(puzzle: MyPuzzle):
 
 
 def solve_b(puzzle: MyPuzzle):
-    answer_b = (puzzle.input_lines)
-    # puzzle.submit_b(answer_b)
+    # now with diagonals
+    answer_b = find_overlapping_vents(puzzle.input_lines, diagonals=True)
+    puzzle.submit_b(answer_b)
 
 
 if __name__ == "__main__":
