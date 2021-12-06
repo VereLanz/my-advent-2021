@@ -147,7 +147,7 @@ You wonder how many lanternfish will be spawned after 80 days. Calculate this fr
 some estimated spawn timers and give a simulated number of how many fish there will be.
 
 ### Part Two
-Short description...
+Now simulate the numbers for 256 days...it gets a bit huge!
 
 [top &#8593;](#top)
 
