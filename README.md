@@ -26,7 +26,7 @@ Using the utility library [advent-of-code-data](https://github.com/wimglenn/adve
 ||||||
 |:------:|:------:|:------:|:------:|:------:|
 |    [Day 1](#day-1)    |    [Day 2](#day-2)   |    [Day 3](#day-3)    |    [Day 4](#day-4)    |    [Day 5](#day-5)    |
-| [Day 6](#day-6) | Day 7 | Day 8 | Day 9 | Day 10 |
+| [Day 6](#day-6) | [Day 7](#day-7) | Day 8 | Day 9 | Day 10 |
 | Day 11 | Day 12 | Day 13 | Day 14 | Day 15 |
 | Day 16 | Day 17 | Day 18 | Day 19 | Day 20 |
 | Day 21 | Day 22 | Day 23 | Day 24 | Day 25 |
@@ -53,7 +53,7 @@ Using the utility library [advent-of-code-data](https://github.com/wimglenn/adve
 
 <!--
 
-|  | [Day 7](#day-7) | [Day 8](#day-8) | [Day 9](#day-9) | [Day 10](#day-10) |
+|  |  | [Day 8](#day-8) | [Day 9](#day-9) | [Day 10](#day-10) |
 | [Day 11](#day-11) | [Day 12](#day-12) | [Day 13](#day-13) | [Day 14](#day-14) | [Day 15](#day-15) |
 | [Day 16](#day-16) | [Day 17](#day-17) | [Day 18](#day-18) | [Day 19](#day-19) | [Day 20](#day-20) |
 | [Day 21](#day-21) | [Day 22](#day-22) | [Day 23](#day-23) | [Day 24](#day-24) | [Day 25](#day-25) |
@@ -150,6 +150,26 @@ some estimated spawn timers and give a simulated number of how many fish there w
 Now simulate the numbers for 256 days...it gets a bit huge!
 
 [top &#8593;](#top)
+
+
+
+---
+## Day 7
+### *The Treachery of Whales (Crab Submarines)*
+### Part One
+You are trying to blast a hole into the wall to enter a cave to escape from an aggressive whale!
+Some crabs in submarines are willing to help you by aligning their submarines, 
+but need to minimise their fuel consumption.
+From some starting positions, move all submarines horizontally to be in a line while
+minimising their total steps needed.
+
+### Part Two
+Turns out the crab submarines' fuel consumption is not linear but increasing with each step.
+Recalculate the horizontal alignment position while having each crab move as little as possible.
+
+[top &#8593;](#top)
+
+
 
 
 
