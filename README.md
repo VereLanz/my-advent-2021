@@ -175,13 +175,13 @@ Recalculate the horizontal alignment position while having each crab move as lit
 ## Day 8
 ### *Seven Segment Search (7-Segment Display Puzzle)*
 ### Part One
-Your seven segment display's signals are jumbled up for each display!
+Your seven segment displays' signals are all jumbled up!
 First, look for the amount of unique digit signals in terms of segment number to work with.
 
 ### Part Two
 Now considering these uniquely segment-numbered digits, figure out which segment in
 your current output corresponds to which actual segment and therefore which numbers 
-the display is trying to display! (Answer is sum of all output digits.)
+the display is trying to display! (Answer is sum of all output numbers.)
 
 [top &#8593;](#top)
 
