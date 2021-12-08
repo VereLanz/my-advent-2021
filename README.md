@@ -93,7 +93,7 @@ The behaviours of the input commands have changed, calculate the positions anew.
 
 ---
 ## Day 3
-### *Binary Diagnostic (Submarine Diagnosis)*
+### *Binary Diagnostic (Bits Piecing)*
 ### Part One
 The submarine's diagnostic report gives you some binary numbers. Figure out the two needed
 binary numbers by determining for each bit if more numbers in da report have a 0 or a 1
