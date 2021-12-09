@@ -1,7 +1,9 @@
+from functools import reduce
 from typing import List
 
 import numpy as np
 from scipy.ndimage import minimum_filter
+from scipy.ndimage.measurements import label
 
 from my_advent import get_todays_puzzle, MyPuzzle
 
@@ -11,11 +13,14 @@ DAY = 9
 def find_area_risk_score(inputs: List[str]) -> int:
     map_x = len(inputs[0])
     map_y = len(inputs)
-    height_map = np.fromstring(",".join("".join(inputs)[:]), dtype=int, sep=",").reshape((map_y, map_x))
+    height_map = np.fromstring(
+        ",".join("".join(inputs)[:]), dtype=int, sep=","
+    ).reshape((map_y, map_x))
     local_minima_mask = minimum_filter(height_map, size=3, mode="constant", cval=9)
     local_minima = height_map[height_map == local_minima_mask]
-    risk_score = np.sum(local_minima) + len(local_minima)
-    return risk_score
+    # scoring for each minima is its height + 1
+    risk_score = np.sum(local_minima + 1)
+    return int(risk_score)
 
 
 def solve_a(puzzle: MyPuzzle):
@@ -23,12 +28,38 @@ def solve_a(puzzle: MyPuzzle):
     puzzle.submit_a(answer_a)
 
 
+def score_big_basins(inputs: List[str]) -> int:
+    map_x = len(inputs[0])
+    map_y = len(inputs)
+    height_map = np.fromstring(
+        ",".join("".join(inputs)[:]), dtype=int, sep=","
+    ).reshape((map_y, map_x))
+
+    # for label function, 0s are background, everything else is signal
+    # we want to find connected basins that are split by 9s -> 9 is background
+    basin_map = height_map.copy()
+    basin_map[basin_map != 9] = 1
+    basin_map[basin_map == 9] = 0
+    search_structure = [
+        [0, 9, 0],
+        [9, 9, 9],
+        [0, 9, 0],
+    ]  # this means touching sideways counts, diagonally does not
+    basin_labels, basin_count = label(basin_map, structure=search_structure)
+    basin_sizes = []
+    for i in range(basin_count):
+        # the labels are numbered 1 to n for every group
+        basin_sizes.append(len(basin_labels[basin_labels == i + 1]))
+    biggest_basins = sorted(basin_sizes)[-3:]
+    return reduce(lambda x, y: x * y, biggest_basins)
+
+
 def solve_b(puzzle: MyPuzzle):
-    answer_b = (puzzle.input_lines)
-    # puzzle.submit_b(answer_b)
+    answer_b = score_big_basins(puzzle.input_lines)
+    puzzle.submit_b(answer_b)
 
 
 if __name__ == "__main__":
     my_puzzle = get_todays_puzzle(DAY)
-    solve_a(my_puzzle)
+    # solve_a(my_puzzle)
     # solve_b(my_puzzle)

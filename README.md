@@ -196,7 +196,9 @@ puddles in the cave tract. Find the local minima in a cave height profile to
 avoid these danger zones, and calculate the risk score for the cave section.
 
 ### Part Two
-Short description...
+Instead of simple local minima we want to avoid the largest basins, which are basically
+areas surrounded by highest points and have a lowest point in them. 
+Multiply the three largest basins' sizes to get a basin risk score.
 
 [top &#8593;](#top)
 

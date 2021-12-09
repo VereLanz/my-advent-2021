@@ -1,4 +1,4 @@
-from my_advent.day9 import find_area_risk_score
+from my_advent.day9 import find_area_risk_score, score_big_basins
 
 EXAMPLE_INPUT = [
     "2199943210",
@@ -15,5 +15,5 @@ def test_example_a():
 
 
 def test_example_b():
-    example_result = 0
-    assert (EXAMPLE_INPUT) == example_result
+    example_result = 1134
+    assert score_big_basins(EXAMPLE_INPUT) == example_result
