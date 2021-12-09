@@ -37,19 +37,12 @@ def score_big_basins(inputs: List[str]) -> int:
 
     # for label function, 0s are background, everything else is signal
     # we want to find connected basins that are split by 9s -> 9 is background
-    basin_map = height_map.copy()
-    basin_map[basin_map != 9] = 1
-    basin_map[basin_map == 9] = 0
-    search_structure = [
-        [0, 9, 0],
-        [9, 9, 9],
-        [0, 9, 0],
-    ]  # this means touching sideways counts, diagonally does not
-    basin_labels, basin_count = label(basin_map, structure=search_structure)
-    basin_sizes = []
-    for i in range(basin_count):
-        # the labels are numbered 1 to n for every group
-        basin_sizes.append(len(basin_labels[basin_labels == i + 1]))
+    height_map[height_map != 9] = 1
+    height_map[height_map == 9] = 0
+    # default label search structure: touching sideways counts, diagonally does not
+    basin_labels, basin_count = label(height_map)
+    # the labels are numbered 1 to n for every group
+    basin_sizes = [len(basin_labels[basin_labels == i + 1]) for i in range(basin_count)]
     biggest_basins = sorted(basin_sizes)[-3:]
     return reduce(lambda x, y: x * y, biggest_basins)
 
