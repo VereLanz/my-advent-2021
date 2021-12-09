@@ -10,6 +10,7 @@ setup(
     install_requires=[
         "advent-of-code-data",
         "numpy",
+        "scipy",
     ],
     tests_require=[
         "pytest",
