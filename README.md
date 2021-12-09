@@ -65,7 +65,7 @@ Using the utility library [advent-of-code-data](https://github.com/wimglenn/adve
 ---
 ## Day 1
 ### *Sonar Sweep (Seafloor Depth)*
-[code &#8608;](https://github.com/VereLanz/my-advent-2021/blob/main/my_advent/day1.py)
+[code &#8614;](https://github.com/VereLanz/my-advent-2021/blob/main/my_advent/day1.py)
 ### Part One
 You get a seafloor depth scan report. 
 Find out how many measurements are larger (deeper) than the previous.
@@ -81,7 +81,7 @@ find out how many measurement *groups* are larger (deeper) than the previous.
 ---
 ## Day 2
 ### *Dive! (Submarine Steering)*
-[code &#8611;](https://github.com/VereLanz/my-advent-2021/blob/main/my_advent/day2.py)
+[code &#8614;](https://github.com/VereLanz/my-advent-2021/blob/main/my_advent/day2.py)
 ### Part One
 Follow the steering instructions given for your submarine (starting at (0, 0)) 
 and multiply the final horizontal and vertical positions.
@@ -115,7 +115,7 @@ have the right bit. Then calculate the two new numbers like in Part One.
 ---
 ## Day 4
 ### *Giant Squid (Squid Bingo)*
-[code &#8618;](https://github.com/VereLanz/my-advent-2021/blob/main/my_advent/day4.py)
+[code &#8614;](https://github.com/VereLanz/my-advent-2021/blob/main/my_advent/day4.py)
 ### Part One
 You get some bingo boards and a list of numbers that will be drawn in order.
 Figure out which of the boards will get bingo first and what its score 
@@ -132,7 +132,7 @@ so figure out which board will be the last to bingo and calculate it's score.
 ---
 ## Day 5
 ### *Hydrothermal Venture (Vent Grid)*
-[code &#8625;](https://github.com/VereLanz/my-advent-2021/blob/main/my_advent/day5.py)
+[code &#8614;](https://github.com/VereLanz/my-advent-2021/blob/main/my_advent/day5.py)
 ### Part One
 You get coordinates of start and end points for hydrothermal vent lines.
 First, figure out spots where at least two horizontal or vertical lines overlap.
@@ -148,7 +148,7 @@ Now also consider diagonal lines and again check where at least two lines overla
 ---
 ## Day 6
 ### *Lanternfish (Exponential Spawning)*
-[code &#8658;](https://github.com/VereLanz/my-advent-2021/blob/main/my_advent/day6.py)
+[code &#8614;](https://github.com/VereLanz/my-advent-2021/blob/main/my_advent/day6.py)
 ### Part One
 You wonder how many lanternfish will be spawned after 80 days. Calculate this from
 some estimated spawn timers and give a simulated number of how many fish there will be.
@@ -163,7 +163,7 @@ Now simulate the numbers for 256 days...it gets a bit huge!
 ---
 ## Day 7
 ### *The Treachery of Whales (Crab Submarines)*
-[code &#8599;](https://github.com/VereLanz/my-advent-2021/blob/main/my_advent/day7.py)
+[code &#8614;](https://github.com/VereLanz/my-advent-2021/blob/main/my_advent/day7.py)
 ### Part One
 You are trying to blast a hole into the wall to enter a cave to escape from an aggressive whale!
 Some crabs in submarines are willing to help you by aligning their submarines, 
@@ -182,7 +182,7 @@ Recalculate the horizontal alignment position while having each crab move as lit
 ---
 ## Day 8
 ### *Seven Segment Search (7-Segment Display Puzzle)*
-[code &#8599;](https://github.com/VereLanz/my-advent-2021/blob/main/my_advent/day8.py)
+[code &#8614;](https://github.com/VereLanz/my-advent-2021/blob/main/my_advent/day8.py)
 ### Part One
 Your seven segment displays' signals are all jumbled up!
 First, look for the amount of unique digit signals in terms of segment number to work with.
@@ -199,7 +199,7 @@ the display is trying to display! (Answer is sum of all output numbers.)
 ---
 ## Day 9
 ### *Smoke Basin (Cave Local Minima)*
-[code &#8599;](https://github.com/VereLanz/my-advent-2021/blob/main/my_advent/day9.py)
+[code &#8614;](https://github.com/VereLanz/my-advent-2021/blob/main/my_advent/day9.py)
 ### Part One
 Inside the cave, some geothermal smoke is coming out of the walls and collecting inside
 puddles in the cave tract. Find the local minima in a cave height profile to 
@@ -223,7 +223,7 @@ Multiply the three largest basins' sizes to get a basin risk score.
 ---
 ## Day 
 ### *name*
-[code &#8599;](https://github.com/VereLanz/my-advent-2021/blob/main/my_advent/day.py)
+[code &#8614;](https://github.com/VereLanz/my-advent-2021/blob/main/my_advent/day.py)
 ### Part One
 Short description...
 
