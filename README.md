@@ -81,7 +81,7 @@ find out how many measurement *groups* are larger (deeper) than the previous.
 ---
 ## Day 2
 ### *Dive! (Submarine Steering)*
-[code &#8608;](https://github.com/VereLanz/my-advent-2021/blob/main/my_advent/day2.py)
+[code &#8611;](https://github.com/VereLanz/my-advent-2021/blob/main/my_advent/day2.py)
 ### Part One
 Follow the steering instructions given for your submarine (starting at (0, 0)) 
 and multiply the final horizontal and vertical positions.
@@ -97,7 +97,7 @@ The behaviours of the input commands have changed, calculate the positions anew.
 ---
 ## Day 3
 ### *Binary Diagnostic (Bits Piecing)*
-[code &#8599;](https://github.com/VereLanz/my-advent-2021/blob/main/my_advent/day3.py)
+[code &#8614;](https://github.com/VereLanz/my-advent-2021/blob/main/my_advent/day3.py)
 ### Part One
 The submarine's diagnostic report gives you some binary numbers. Figure out the two needed
 binary numbers by determining for each bit if more numbers in da report have a 0 or a 1
@@ -115,7 +115,7 @@ have the right bit. Then calculate the two new numbers like in Part One.
 ---
 ## Day 4
 ### *Giant Squid (Squid Bingo)*
-[code &#8599;](https://github.com/VereLanz/my-advent-2021/blob/main/my_advent/day4.py)
+[code &#8618;](https://github.com/VereLanz/my-advent-2021/blob/main/my_advent/day4.py)
 ### Part One
 You get some bingo boards and a list of numbers that will be drawn in order.
 Figure out which of the boards will get bingo first and what its score 
@@ -132,7 +132,7 @@ so figure out which board will be the last to bingo and calculate it's score.
 ---
 ## Day 5
 ### *Hydrothermal Venture (Vent Grid)*
-[code &#8599;](https://github.com/VereLanz/my-advent-2021/blob/main/my_advent/day5.py)
+[code &#8625;](https://github.com/VereLanz/my-advent-2021/blob/main/my_advent/day5.py)
 ### Part One
 You get coordinates of start and end points for hydrothermal vent lines.
 First, figure out spots where at least two horizontal or vertical lines overlap.
@@ -148,7 +148,7 @@ Now also consider diagonal lines and again check where at least two lines overla
 ---
 ## Day 6
 ### *Lanternfish (Exponential Spawning)*
-[code &#8599;](https://github.com/VereLanz/my-advent-2021/blob/main/my_advent/day6.py)
+[code &#8658;](https://github.com/VereLanz/my-advent-2021/blob/main/my_advent/day6.py)
 ### Part One
 You wonder how many lanternfish will be spawned after 80 days. Calculate this from
 some estimated spawn timers and give a simulated number of how many fish there will be.
