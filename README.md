@@ -65,7 +65,7 @@ Using the utility library [advent-of-code-data](https://github.com/wimglenn/adve
 ---
 ## Day 1
 ### *Sonar Sweep (Seafloor Depth)*
-[code &#8599;](https://github.com/VereLanz/my-advent-2021/blob/main/my_advent/day1.py)
+[code &#8608;](https://github.com/VereLanz/my-advent-2021/blob/main/my_advent/day1.py)
 ### Part One
 You get a seafloor depth scan report. 
 Find out how many measurements are larger (deeper) than the previous.
@@ -81,7 +81,7 @@ find out how many measurement *groups* are larger (deeper) than the previous.
 ---
 ## Day 2
 ### *Dive! (Submarine Steering)*
-[code &#8599;](https://github.com/VereLanz/my-advent-2021/blob/main/my_advent/day2.py)
+[code &#8608;](https://github.com/VereLanz/my-advent-2021/blob/main/my_advent/day2.py)
 ### Part One
 Follow the steering instructions given for your submarine (starting at (0, 0)) 
 and multiply the final horizontal and vertical positions.
