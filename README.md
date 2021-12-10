@@ -223,7 +223,9 @@ or bracket used in a line and calculate the score of the errors.
 Do not count missing symbols for now, only wrong ones (corrupt line).
 
 ### Part Two
-Short description...
+Now ignore the corrupt lines and focus on the incomplete ones. They are missing the
+closing symbols at the end of the line. Find the missing symbols in the correct 
+order and calculate each line's score and select the middle one for your answer.
 
 [top &#8593;](#top)
 
