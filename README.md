@@ -26,7 +26,7 @@ Using the utility library [advent-of-code-data](https://github.com/wimglenn/adve
 ||||||
 |:------:|:------:|:------:|:------:|:------:|
 |    [Day 1](#day-1)    |    [Day 2](#day-2)   |    [Day 3](#day-3)    |    [Day 4](#day-4)    |    [Day 5](#day-5)    |
-| [Day 6](#day-6) | [Day 7](#day-7) | [Day 8](#day-8) | [Day 9](#day-9) | Day 10 |
+| [Day 6](#day-6) | [Day 7](#day-7) | [Day 8](#day-8) | [Day 9](#day-9) | [Day 10](#day-10) |
 | Day 11 | Day 12 | Day 13 | Day 14 | Day 15 |
 | Day 16 | Day 17 | Day 18 | Day 19 | Day 20 |
 | Day 21 | Day 22 | Day 23 | Day 24 | Day 25 |
@@ -53,7 +53,6 @@ Using the utility library [advent-of-code-data](https://github.com/wimglenn/adve
 
 <!--
 
-|  |  |  |  | [Day 10](#day-10) |
 | [Day 11](#day-11) | [Day 12](#day-12) | [Day 13](#day-13) | [Day 14](#day-14) | [Day 15](#day-15) |
 | [Day 16](#day-16) | [Day 17](#day-17) | [Day 18](#day-18) | [Day 19](#day-19) | [Day 20](#day-20) |
 | [Day 21](#day-21) | [Day 22](#day-22) | [Day 23](#day-23) | [Day 24](#day-24) | [Day 25](#day-25) |
@@ -209,6 +208,22 @@ avoid these danger zones, and calculate the risk score for the cave section.
 Instead of simple local minima we want to avoid the largest basins, which are basically
 areas surrounded by highest points and have a lowest point in them. 
 Multiply the three largest basins' sizes to get a basin risk score.
+
+[top &#8593;](#top)
+
+
+
+---
+## Day 10
+### *Syntax Scoring (Checking Brace-arenthe-ckets)*
+[code &#8614;](https://github.com/VereLanz/my-advent-2021/blob/main/my_advent/day10.py)
+### Part One
+Your submarine threw a syntax error! Find where there was a wrong brace, parenthesis 
+or bracket used in a line and calculate the score of the errors.
+Do not count missing symbols for now, only wrong ones (corrupt line).
+
+### Part Two
+Short description...
 
 [top &#8593;](#top)
 
