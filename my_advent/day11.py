@@ -12,11 +12,7 @@ FLASH_MASK = np.ones((3, 3))
 
 
 def count_flashing_octopi(inputs: List[str], steps: int = 100) -> int:
-    octo_x = len(inputs[0])
-    octo_y = len(inputs)
-    grid_vals = ",".join("".join(inputs)[:])
-    octopi = np.fromstring(grid_vals, dtype=float, sep=",").reshape((octo_y, octo_x))
-
+    octopi = get_octopi_grid(inputs)
     flash_count = 0
     for _ in range(steps):
         # assume at step 0 there is no >9 yet
@@ -24,6 +20,13 @@ def count_flashing_octopi(inputs: List[str], steps: int = 100) -> int:
         octopi, flashes = determine_flashes(octopi)
         flash_count += flashes
     return flash_count
+
+
+def get_octopi_grid(inputs: List[str]) -> np.ndarray:
+    octo_x = len(inputs[0])
+    octo_y = len(inputs)
+    grid_vals = ",".join("".join(inputs)[:])
+    return np.fromstring(grid_vals, dtype=float, sep=",").reshape((octo_y, octo_x))
 
 
 def determine_flashes(octopi: np.ndarray) -> Tuple[np.ndarray, int]:
@@ -49,11 +52,7 @@ def solve_a(puzzle: MyPuzzle):
 
 
 def find_flashy_step(inputs: List[str]) -> int:
-    octo_x = len(inputs[0])
-    octo_y = len(inputs)
-    grid_vals = ",".join("".join(inputs)[:])
-    octopi = np.fromstring(grid_vals, dtype=float, sep=",").reshape((octo_y, octo_x))
-
+    octopi = get_octopi_grid(inputs)
     step = 0
     flashy = False
     while not flashy:
@@ -74,4 +73,4 @@ def solve_b(puzzle: MyPuzzle):
 if __name__ == "__main__":
     my_puzzle = get_todays_puzzle(DAY)
     # solve_a(my_puzzle)
-    solve_b(my_puzzle)
+    # solve_b(my_puzzle)
