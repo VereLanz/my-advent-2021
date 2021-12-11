@@ -206,7 +206,7 @@ avoid these danger zones, and calculate the risk score for the cave section.
 
 ### Part Two
 Instead of simple local minima we want to avoid the largest basins, which are basically
-areas surrounded by highest points and have a lowest point in them. 
+areas surrounded by highest points and have lower points in them. 
 Multiply the three largest basins' sizes to get a basin risk score.
 
 [top &#8593;](#top)
@@ -238,7 +238,7 @@ order and calculate each line's score and select the middle one for your answer.
 ### Part One
 You see some luminescent octopi in the dark cave and want to use their light flashes
 to navigate the cave. First, find out how many octopi will have lit up after some steps.
-Every shining octopus will also increase every neighbours energy level for its own flash.
+Every shining octopus will also increase every neighbour's energy level for its own flash.
 
 ### Part Two
 They do flash rather dimly, so you want to find the moment they all flash up simultaneously!
