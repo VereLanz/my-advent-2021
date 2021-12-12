@@ -258,7 +258,8 @@ each cave, find every possible path from your starting position to the end point
 visiting smaller caves at most once.
 
 ### Part Two
-Short description...
+After closed inspection, visiting ONE small cave twice is okay as well, how many 
+paths does that give?
 
 [top &#8593;](#top)
 

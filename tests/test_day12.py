@@ -1,6 +1,6 @@
 import pytest
 
-from my_advent.day12 import count_paths_through_system
+from my_advent.day12 import count_paths_through_system, count_more_paths_through_system
 
 EXAMPLE_INPUT_ONE = [
     "start-A",
@@ -60,5 +60,5 @@ def test_example_a(connections, paths):
 
 
 def test_example_b():
-    example_result = 0
-    assert (EXAMPLE_INPUT_ONE) == example_result
+    example_result = 36
+    assert count_more_paths_through_system(EXAMPLE_INPUT_ONE) == example_result
