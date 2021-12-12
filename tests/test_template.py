@@ -1,7 +1,7 @@
 # This file can be copied for each day to make test driven development even easier!
 import pytest
 
-# from my_advent.day0 import a
+# from my_advent.day import a
 
 EXAMPLE_INPUT = [
     0,
