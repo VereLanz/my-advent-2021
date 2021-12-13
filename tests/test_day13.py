@@ -1,4 +1,4 @@
-from my_advent.day13 import fold_and_count_dots
+from my_advent.day13 import fold_and_count_dots, fold_and_show_dots
 
 EXAMPLE_INPUT = [
     "6,10",
@@ -31,5 +31,5 @@ def test_example_a():
 
 
 def test_example_b():
-    example_result = 0
-    assert (EXAMPLE_INPUT) == example_result
+    # should print a matrix with 1s shaped like a square (+ 2 zero rows)
+    fold_and_show_dots(EXAMPLE_INPUT)

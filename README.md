@@ -276,7 +276,8 @@ dots moving and overlapping.
 First, figure out how many dots will be visible after doing the first instruction.
 
 ### Part Two
-Short description...
+After completing all instructions, you will see an 8 capital letter code on your folded
+sheet, this code is your answer!
 
 [top &#8593;](#top)
 

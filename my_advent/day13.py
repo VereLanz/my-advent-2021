@@ -48,9 +48,23 @@ def solve_a(puzzle: MyPuzzle):
     puzzle.submit_a(answer_a)
 
 
+def fold_and_show_dots(inputs: list[str]):
+    points, instructions = parse_origami_input(inputs)
+    # create np sheet
+    sheet_x = max([p[0] for p in points]) + 1
+    sheet_y = max([p[1] for p in points]) + 1
+    sheet = np.zeros((sheet_y, sheet_x))
+    for x, y in points:
+        sheet[y][x] = 1
+    for coord, line_idx in instructions:
+        sheet = fold_origami_sheet(sheet, coord, int(line_idx))
+    print(sheet)
+
+
 def solve_b(puzzle: MyPuzzle):
-    answer_b = puzzle.input_lines
-    # puzzle.submit_b(answer_b)
+    fold_and_show_dots(puzzle.input_lines)
+    # it shows ALREKFKU
+    puzzle.submit_b("ALREKFKU")
 
 
 if __name__ == "__main__":
