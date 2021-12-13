@@ -1,4 +1,4 @@
-from my_advent.day13 import a
+from my_advent.day13 import fold_and_count_dots
 
 EXAMPLE_INPUT = [
     "6,10",
@@ -27,7 +27,7 @@ EXAMPLE_INPUT = [
 
 def test_example_a():
     example_result = 17
-    assert (EXAMPLE_INPUT) == example_result
+    assert fold_and_count_dots(EXAMPLE_INPUT) == example_result
 
 
 def test_example_b():
