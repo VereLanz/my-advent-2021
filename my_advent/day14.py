@@ -9,13 +9,10 @@ def score_full_chain(inputs: list[str], steps: int = 10) -> int:
     chain, rules = parse_input(inputs)
     for _ in range(steps):
         chain_pairs = [chain[i] + chain[i + 1] for i in range(len(chain) - 1)]
-        new_chain_sets = chain_pairs.copy()
         for pair_idx, pair in enumerate(chain_pairs):
-            if pair in rules.keys():
-                new_chain_sets[pair_idx] = pair[0] + rules[pair] + pair[1]
-        new_chain_pieces = [p[:-1] for p in new_chain_sets[:-1]]
-        new_chain_pieces.append(new_chain_sets[-1])
-        chain = "".join(new_chain_pieces)
+            chain_pairs[pair_idx] = pair[0] + rules.get(pair, "") + pair[1]
+        new_chain_pieces = [p[:-1] for p in chain_pairs[:-1]]
+        chain = "".join(new_chain_pieces) + chain_pairs[-1]
     counter = Counter(chain).most_common()
     chain_score = counter[0][1] - counter[-1][1]
     return chain_score
@@ -34,11 +31,11 @@ def solve_a(puzzle: MyPuzzle):
 
 
 def solve_b(puzzle: MyPuzzle):
-    answer_b = (puzzle.input_lines)
+    answer_b = score_full_chain(puzzle.input_lines, steps=40)
     # puzzle.submit_b(answer_b)
 
 
 if __name__ == "__main__":
     my_puzzle = get_todays_puzzle(DAY)
-    solve_a(my_puzzle)
-    # solve_b(my_puzzle)
+    # solve_a(my_puzzle)
+    solve_b(my_puzzle)
