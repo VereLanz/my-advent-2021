@@ -288,10 +288,12 @@ sheet, this code is your answer!
 ### *Extended Polymerization (Inserting Letters)*
 [code &#8614;](https://github.com/VereLanz/my-advent-2021/blob/main/my_advent/day14.py)
 ### Part One
-Short description...
+From a chain of letters and instructions between which two letters a new one should be
+inserted, calculate which letter will be there the most and which the least after
+inserting letters as instructed for a given amount of steps.
 
 ### Part Two
-Short description...
+Same as part one, but quadruple the steps!
 
 [top &#8593;](#top)
 
