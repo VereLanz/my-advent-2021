@@ -27,7 +27,7 @@ Using the utility library [advent-of-code-data](https://github.com/wimglenn/adve
 |:------:|:------:|:------:|:------:|:------:|
 |    [Day 1](#day-1)    |    [Day 2](#day-2)   |    [Day 3](#day-3)    |    [Day 4](#day-4)    |    [Day 5](#day-5)    |
 | [Day 6](#day-6) | [Day 7](#day-7) | [Day 8](#day-8) | [Day 9](#day-9) | [Day 10](#day-10) |
-| [Day 11](#day-11) | [Day 12](#day-12) | [Day 13](#day-13) | Day 14 | Day 15 |
+| [Day 11](#day-11) | [Day 12](#day-12) | [Day 13](#day-13) | [Day 14](#day-14) | Day 15 |
 | Day 16 | Day 17 | Day 18 | Day 19 | Day 20 |
 | Day 21 | Day 22 | Day 23 | Day 24 | Day 25 |
 ||||||
@@ -36,7 +36,7 @@ Using the utility library [advent-of-code-data](https://github.com/wimglenn/adve
 
 <!--
 
-|  |  |  | [Day 14](#day-14) | [Day 15](#day-15) |
+|  |  |  |  | [Day 15](#day-15) |
 | [Day 16](#day-16) | [Day 17](#day-17) | [Day 18](#day-18) | [Day 19](#day-19) | [Day 20](#day-20) |
 | [Day 21](#day-21) | [Day 22](#day-22) | [Day 23](#day-23) | [Day 24](#day-24) | [Day 25](#day-25) |
 
@@ -281,6 +281,19 @@ sheet, this code is your answer!
 
 [top &#8593;](#top)
 
+
+
+---
+## Day 14
+### *Extended Polymerization (Inserting Letters)*
+[code &#8614;](https://github.com/VereLanz/my-advent-2021/blob/main/my_advent/day14.py)
+### Part One
+Short description...
+
+### Part Two
+Short description...
+
+[top &#8593;](#top)
 
 
 
