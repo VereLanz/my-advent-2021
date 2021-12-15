@@ -1,12 +1,11 @@
 # This file can be copied to start each day even easier!
-from typing import List
 
 from my_advent import get_todays_puzzle, MyPuzzle
 
 DAY = 0
 
 
-def a(inputs: List[str]) -> int:
+def a(inputs: list[str]) -> int:
     return 0
 
 
