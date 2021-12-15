@@ -11,6 +11,7 @@ setup(
         "advent-of-code-data",
         "numpy",
         "scipy",
+        "pathfinding",
     ],
     tests_require=[
         "pytest",
