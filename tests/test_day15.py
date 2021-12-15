@@ -1,4 +1,4 @@
-from my_advent.day15 import find_lowest_risk_path
+from my_advent.day15 import find_lowest_risk_path, find_bigger_lowest_risk_path
 
 EXAMPLE_INPUT = [
     "1163751742",
@@ -20,5 +20,5 @@ def test_example_a():
 
 
 def test_example_b():
-    example_result = 0
-    assert (EXAMPLE_INPUT) == example_result
+    example_result = 315
+    assert find_bigger_lowest_risk_path(EXAMPLE_INPUT) == example_result

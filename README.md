@@ -307,7 +307,8 @@ The cave's exit is near, but the path ahead has the risk of bumping into Chiton-
 Calculate the lowest risk path from your top-left position to the bottom-right exit.
 
 ### Part Two
-Short description...
+Oops, the actual cave is twenty-five times larger than you thought, try again!
+(with a bigger map that you need to interpolate yourself)
 
 [top &#8593;](#top)
 
