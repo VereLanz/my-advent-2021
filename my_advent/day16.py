@@ -93,44 +93,53 @@ def run_packet_operations(packets: list[list[str]]) -> int:
     op_types = [int(packet[1], 2) for packet in packets]
     # finding each packets relations that are their operands
     operator_rels = {}
+    all_relations = []
     for i in reversed(range(len(packets))):
         if op_types[i] == 4:
             operator_rels[i] = PACKET_OPERATION[op_types[i]](packets[i][2:])
         else:
-            operator_rels[i] = find_relations(i, packets, op_types)
-    print(operator_rels)
+            operator_rels[i] = find_relations(i, packets, op_types, all_relations)
 
     # running the evaluations of all relations round by round
     result = evaluate_operations(operator_rels, op_types, packets)
     return result
 
 
-def find_relations(i: int, packets, op_types) -> list[int]:
+def find_relations(
+    i: int, packets: list[list[str]], op_types: list[int], all_relations: list[int]
+) -> list[int]:
     relations = []
+    # most basic ones can just take all the literal packets below them
     for j in range(i + 1, len(op_types)):
         if op_types[j] != 4:
             break
         relations.append(j)
-    if not relations:
-        # very roundabout way for sub-ops, because it wasn't done properly before
-        if packets[i][-2] == "1":
-            sub_nr = int(packets[i][-1], 2)
-            j = i + 1
-            while len(relations) < sub_nr:
-                if op_types[j] != 4:
-                    relations.append(j)
-                j += 1
-        elif packets[i][-2] == "0":
-            sub_len = int(packets[i][-1], 2)
-            packs_len = 0
-            j = i + 1
-            while j < len(packets):
-                packs_len += len("".join(packets[j]))
-                if op_types[j] != 4:
-                    relations.append(j)
-                if packs_len >= sub_len:
-                    break
-                j += 1
+    if relations:
+        all_relations.extend(relations)
+        return relations.copy()
+
+    # type "1" gave the number of sub-packets it has
+    if packets[i][-2] == "1":
+        sub_nr = int(packets[i][-1], 2)
+        j = i + 1
+        while len(relations) < sub_nr:
+            if op_types[j] != 4 and j not in all_relations:
+                relations.append(j)
+            j += 1
+
+    # type "0" gave the number of bits in it's sub-packets
+    elif packets[i][-2] == "0":
+        sub_len = int(packets[i][-1], 2)
+        packs_len = 0
+        j = i + 1
+        while j < len(packets):
+            packs_len += len("".join(packets[j]))
+            if packs_len >= sub_len:
+                break
+            if op_types[j] != 4 and j not in all_relations:
+                relations.append(j)
+            j += 1
+    all_relations.extend(relations)
     return relations.copy()
 
 
