@@ -93,7 +93,7 @@ def run_packet_operations(packets: list[list[str]]) -> int:
     op_types = [int(packet[1], 2) for packet in packets]
     # finding each packets relations that are their operands
     operator_rels = {}
-    for i in reversed(list(range(len(packets)))):
+    for i in reversed(range(len(packets))):
         if op_types[i] == 4:
             operator_rels[i] = PACKET_OPERATION[op_types[i]](packets[i][2:])
         else:
@@ -115,23 +115,28 @@ def find_relations(i: int, packets, op_types) -> list[int]:
         # very roundabout way for sub-ops, because it wasn't done properly before
         if packets[i][-2] == "1":
             sub_nr = int(packets[i][-1], 2)
-            for j in range(i + 1, i + 1 + sub_nr):
+            j = i + 1
+            while len(relations) < sub_nr:
                 if op_types[j] != 4:
                     relations.append(j)
+                j += 1
         elif packets[i][-2] == "0":
             sub_len = int(packets[i][-1], 2)
             packs_len = 0
-            j = 1
-            while packs_len <= sub_len and i + j < len(packets):
-                packs_len += len("".join(packets[i + j]))
+            j = i + 1
+            while j < len(packets):
+                packs_len += len("".join(packets[j]))
+                if op_types[j] != 4:
+                    relations.append(j)
+                if packs_len >= sub_len:
+                    break
                 j += 1
-            for sub_idx in range(i + 1, j):
-                if op_types[sub_idx] != 4:
-                    relations.append(sub_idx)
     return relations.copy()
 
 
-def evaluate_operations(operator_rels: dict[int, Union[int, list[int]]], op_types, packets) -> int:
+def evaluate_operations(
+    operator_rels: dict[int, Union[int, list[int]]], op_types: list[int], packets
+) -> int:
     operators = [(idx, val) for idx, val in operator_rels.items()
                  if isinstance(val, list)]
     while len(operators) > 0:
@@ -144,7 +149,7 @@ def evaluate_operations(operator_rels: dict[int, Union[int, list[int]]], op_type
                 if isinstance(operand, list):
                     run = False
             if run:
-                print(idx, packets[idx][-2], op_types[idx], operands)
+                print(idx, packets[idx][-2], op_types[idx], val, operands)
                 operator_rels[idx] = PACKET_OPERATION[op_types[idx]](operands)
         operators = [(idx, val) for idx, val in operator_rels.items()
                      if isinstance(val, list)]
@@ -154,7 +159,8 @@ def evaluate_operations(operator_rels: dict[int, Union[int, list[int]]], op_type
 
 def solve_b(puzzle: MyPuzzle):
     answer_b = analyse_packets(puzzle.input_lines)
-    puzzle.submit_b(answer_b)
+    print(answer_b)
+    # puzzle.submit_b(answer_b)
 
 
 if __name__ == "__main__":
