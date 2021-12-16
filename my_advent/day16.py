@@ -24,10 +24,13 @@ def sum_packet_versions(inputs: list[str]) -> int:
 
 
 def parse_hex_packs(hex_code: str) -> list[Union[str, list[str]]]:
-    # if padding needed: format(int(hex, 16), "04b"); 04 is padding to 4 with 0s
-    b_code = bin(int(hex_code, 16))[2:]
-    packets = []
+    # b_code = bin(int(hex_code, 16))[2:]
+    b_codes = []
+    for hex_char in hex_code[:]:
+        b_codes.append(format(int(hex_char, 16), "04b"))
+    b_code = "".join(b_codes)
 
+    packets = []
     # calls itself recursively until all (sub-)packs have been analysed
     parse_next_pack(b_code, packets)
     print(packets)
@@ -35,14 +38,22 @@ def parse_hex_packs(hex_code: str) -> list[Union[str, list[str]]]:
 
 
 def parse_next_pack(b_code: str, packets: list):
+    print(b_code)
     if len(b_code) < 11:
         # all sub-packets have finished, this is padding
         return
     current_pack = [b_code[:3], b_code[3:6]]
-    if int(current_pack[1], 2) == 4:  # a literal packet, no further sub-packets
-        for i in range(int(len(b_code[6:]) / 5)):  # works if the rest-bits are < 5
-            current_pack.append(b_code[6 + 5 * i:6 + 5 * (i + 1)][1:])
+    if int(current_pack[1], 2) == 4:  # a literal packet
+        next_bits = True
+        i = 0
+        while next_bits:
+            bits = b_code[6 + 5 * i:6 + 5 * (i + 1)]
+            current_pack.append(bits[1:])
+            i += 1
+            if bits[0] == "0":
+                next_bits = False
         packets.append(current_pack)
+        parse_next_pack(b_code[6 + 5 * i:], packets)
 
     else:  # an operator packet
         length_type_id = b_code[6]
