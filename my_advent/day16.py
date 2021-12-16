@@ -1,3 +1,7 @@
+"""
+This here is not particularly clean...but a colleague made a nicely structured solution:
+https://github.com/lukasbindreiter/AdventOfCode2021/blob/main/16/16.ipynb
+"""
 import math
 from typing import Union
 
@@ -48,14 +52,13 @@ def parse_next_pack(b_code: str, packets: list):
         return
     current_pack = [b_code[:3], b_code[3:6]]
     if int(current_pack[1], 2) == 4:  # a literal packet
-        next_bits = True
         i = 0
-        while next_bits:
+        while True:
             bits = b_code[6 + 5 * i:6 + 5 * (i + 1)]
             current_pack.append(bits[1:])
             i += 1
             if bits[0] == "0":
-                next_bits = False
+                break
         packets.append(current_pack)
         parse_next_pack(b_code[6 + 5 * i:], packets)
 
@@ -64,14 +67,10 @@ def parse_next_pack(b_code: str, packets: list):
         current_pack.append(length_type_id)
         info_bits_nr = LENGTH_TYPE[length_type_id]
         current_pack.append(b_code[7:7 + info_bits_nr])
-        if length_type_id == "0":
-            # sub_pack_bits = int(current_pack[-1], 2)  # not needed?
-            packets.append(current_pack)
-            parse_next_pack(b_code[7 + info_bits_nr:], packets)
-        elif length_type_id == "1":
-            # sub_pack_nr = int(current_pack[-1], 2)  # not needed?
-            packets.append(current_pack)
-            parse_next_pack(b_code[7 + info_bits_nr:], packets)
+        # type "0" -> sub_pack_bits = int(current_pack[-1], 2)  # needed further down
+        # type "1" -> sub_pack_nr = int(current_pack[-1], 2)  # needed further down
+        packets.append(current_pack)
+        parse_next_pack(b_code[7 + info_bits_nr:], packets)
 
 
 def solve_a(puzzle: MyPuzzle):
@@ -86,31 +85,56 @@ def analyse_packets(inputs: list[str]) -> int:
 
 
 def run_packet_operations(packets: list[list[str]]) -> int:
+    """
+    I am very sorry about these functions, I was too tired to rewrite the sub-packet
+    parsing from scratch and wanted to somehow solve it with my basic packet list.
+    Probably would have been faster had I rewrote everything.
+    """
     op_types = [int(packet[1], 2) for packet in packets]
+    # finding each packets relations that are their operands
     operator_rels = {}
-    for i, op_type in reversed(list(enumerate(op_types))):
-        if op_type != 4:
-            relations = []
-            for j in range(i + 1, len(op_types)):
-                if op_types[j] != 4:
-                    break
-                relations.append(j)
-            if not relations:
-                for j in range(i + 1, len(op_types)):
-                    if isinstance(operator_rels[j], list):
-                        relations.append(j)
-                    if packets[i][-2] == "1" and len(relations) == int(packets[i][-1], 2):
-                        break
-                    # TODO: how to get the correct relations for type 0 operators...
-                    # elif packets[i][-2] == "0"
-            operator_rels[i] = relations.copy()
-        elif op_type == 4:
-            operator_rels[i] = PACKET_OPERATION[op_type](packets[i][2:])
+    for i in reversed(list(range(len(packets)))):
+        if op_types[i] == 4:
+            operator_rels[i] = PACKET_OPERATION[op_types[i]](packets[i][2:])
+        else:
+            operator_rels[i] = find_relations(i, packets, op_types)
     print(operator_rels)
 
-    operators = [(idx, val) for idx, val in operator_rels.items() if isinstance(val, list)]
+    # running the evaluations of all relations round by round
+    result = evaluate_operations(operator_rels, op_types, packets)
+    return result
+
+
+def find_relations(i: int, packets, op_types) -> list[int]:
+    relations = []
+    for j in range(i + 1, len(op_types)):
+        if op_types[j] != 4:
+            break
+        relations.append(j)
+    if not relations:
+        # very roundabout way for sub-ops, because it wasn't done properly before
+        if packets[i][-2] == "1":
+            sub_nr = int(packets[i][-1], 2)
+            for j in range(i + 1, i + 1 + sub_nr):
+                if op_types[j] != 4:
+                    relations.append(j)
+        elif packets[i][-2] == "0":
+            sub_len = int(packets[i][-1], 2)
+            packs_len = 0
+            j = 1
+            while packs_len <= sub_len and i + j < len(packets):
+                packs_len += len("".join(packets[i + j]))
+                j += 1
+            for sub_idx in range(i + 1, j):
+                if op_types[sub_idx] != 4:
+                    relations.append(sub_idx)
+    return relations.copy()
+
+
+def evaluate_operations(operator_rels: dict[int, Union[int, list[int]]], op_types, packets) -> int:
+    operators = [(idx, val) for idx, val in operator_rels.items()
+                 if isinstance(val, list)]
     while len(operators) > 0:
-        print(operators)
         for idx, val in operators:
             run = True
             operands = []
@@ -120,9 +144,10 @@ def run_packet_operations(packets: list[list[str]]) -> int:
                 if isinstance(operand, list):
                     run = False
             if run:
-                print(idx, operands, op_types[idx])
+                print(idx, packets[idx][-2], op_types[idx], operands)
                 operator_rels[idx] = PACKET_OPERATION[op_types[idx]](operands)
-        operators = [(idx, val) for idx, val in operator_rels.items() if isinstance(val, list)]
+        operators = [(idx, val) for idx, val in operator_rels.items()
+                     if isinstance(val, list)]
 
     return operator_rels[0]  # index 0 is always the last operation
 
