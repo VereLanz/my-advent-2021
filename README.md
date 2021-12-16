@@ -1,4 +1,5 @@
 # My Advent of Code 2021 <a name="top"></a>
+[Find all the detailed official puzzle descriptions &#8594;](https://adventofcode.com/2021)
 <!--
 Using the utility library [advent-of-code-data](https://github.com/wimglenn/advent-of-code-data).
 -->
@@ -28,7 +29,7 @@ Using the utility library [advent-of-code-data](https://github.com/wimglenn/adve
 |    [Day 1](#day-1)    |    [Day 2](#day-2)   |    [Day 3](#day-3)    |    [Day 4](#day-4)    |    [Day 5](#day-5)    |
 | [Day 6](#day-6) | [Day 7](#day-7) | [Day 8](#day-8) | [Day 9](#day-9) | [Day 10](#day-10) |
 | [Day 11](#day-11) | [Day 12](#day-12) | [Day 13](#day-13) | [Day 14](#day-14) | [Day 15](#day-15) |
-| Day 16 | Day 17 | Day 18 | Day 19 | Day 20 |
+| [Day 16](#day-16) | Day 17 | Day 18 | Day 19 | Day 20 |
 | Day 21 | Day 22 | Day 23 | Day 24 | Day 25 |
 ||||||
 
@@ -36,7 +37,7 @@ Using the utility library [advent-of-code-data](https://github.com/wimglenn/adve
 
 <!--
 
-| [Day 16](#day-16) | [Day 17](#day-17) | [Day 18](#day-18) | [Day 19](#day-19) | [Day 20](#day-20) |
+|  | [Day 17](#day-17) | [Day 18](#day-18) | [Day 19](#day-19) | [Day 20](#day-20) |
 | [Day 21](#day-21) | [Day 22](#day-22) | [Day 23](#day-23) | [Day 24](#day-24) | [Day 25](#day-25) |
 
 -->
@@ -309,6 +310,22 @@ Calculate the lowest risk path from your top-left position to the bottom-right e
 ### Part Two
 Oops, the actual cave is twenty-five times larger than you thought, try again!
 (with a bigger map that you need to interpolate yourself)
+
+[top &#8593;](#top)
+
+
+
+---
+## Day 16
+### *Packet Decoder (Hex Bit Madness)*
+[code &#8614;](https://github.com/VereLanz/my-advent-2021/blob/main/my_advent/day16.py)
+### Part One
+You receive a message from your colleagues back on the ship. It's a hexadecimal string
+that is encoded crazy complicated, but you will have to unpack it. 
+Start by identifying all sub-packets of your packet and summing up the version numbers.
+
+### Part Two
+Short description...
 
 [top &#8593;](#top)
 
