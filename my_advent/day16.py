@@ -1,5 +1,5 @@
 """
-This here is not particularly clean...but a colleague made a nicely structured solution:
+This here is not particularly clean. A colleague made a nicely structured solution:
 https://github.com/lukasbindreiter/AdventOfCode2021/blob/main/16/16.ipynb
 """
 import math
@@ -8,6 +8,11 @@ from typing import Union
 from my_advent import get_todays_puzzle, MyPuzzle
 
 DAY = 16
+
+LENGTH_TYPE = {
+    "0": 15,  # next 15 bits are total length of bits for all sub-packets
+    "1": 11,  # next 11 bits are the number of sub-packets following
+}
 
 PACKET_OPERATION = {
     0: sum,
@@ -18,11 +23,6 @@ PACKET_OPERATION = {
     5: lambda x: int(x[0] > x[1]),
     6: lambda x: int(x[0] < x[1]),
     7: lambda x: int(x[0] == x[1]),
-}
-
-LENGTH_TYPE = {
-    "0": 15,  # next 15 bits are total length of bits for all sub-packets
-    "1": 11,  # next 11 bits are the number of sub-packets following
 }
 
 
@@ -85,24 +85,19 @@ def analyse_packets(inputs: list[str]) -> int:
 
 
 def run_packet_operations(packets: list[list[str]]) -> int:
-    """
-    I am very sorry about these functions, I was too tired to rewrite the sub-packet
-    parsing from scratch and wanted to somehow solve it with my basic packet list.
-    Probably would have been faster had I rewrote everything.
-    """
     op_types = [int(packet[1], 2) for packet in packets]
     # finding each packets relations that are their operands
     operator_rels = dict()
     all_relations = []
     for i in reversed(range(len(packets))):
         if op_types[i] == 4:
-            operator_rels[i] = i  # PACKET_OPERATION[op_types[i]](packets[i][2:])
+            operator_rels[i] = i
         else:
             operator_rels[i] = find_relations(i, packets, all_relations)
 
-    # running the evaluations of all relations round by round
+    # running the evaluations of all relations from back to front
     result = evaluate_operations(operator_rels, op_types, packets)
-    print(len(all_relations), len(set(all_relations)))
+    print(len(packets), len(all_relations), len(set(all_relations)))
     return result
 
 
@@ -128,7 +123,7 @@ def find_relations(
         j = i + 1
         while j < len(packets):
             packs_len += len("".join(packets[j]))
-            if packs_len >= sub_bits:
+            if packs_len > sub_bits:
                 break
             if j not in all_relations:
                 relations.append(j)
