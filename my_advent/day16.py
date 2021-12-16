@@ -1,12 +1,19 @@
+import math
 from typing import Union
 
 from my_advent import get_todays_puzzle, MyPuzzle
 
 DAY = 16
 
-PACKET_TYPE = {
-    0: "operator",  # everything else than 4 atm
-    4: "literal",
+PACKET_OPERATION = {
+    0: sum,
+    1: math.prod,
+    2: min,
+    3: max,
+    4: lambda x: int("".join(x), 2),
+    5: lambda x, y: int(x > y),
+    6: lambda x, y: int(x < y),
+    7: lambda x, y: int(x == y),
 }
 
 LENGTH_TYPE = {
@@ -24,7 +31,6 @@ def sum_packet_versions(inputs: list[str]) -> int:
 
 
 def parse_hex_packs(hex_code: str) -> list[Union[str, list[str]]]:
-    # b_code = bin(int(hex_code, 16))[2:]
     b_codes = []
     for hex_char in hex_code[:]:
         b_codes.append(format(int(hex_char, 16), "04b"))
@@ -61,9 +67,9 @@ def parse_next_pack(b_code: str, packets: list):
         info_bits_nr = LENGTH_TYPE[length_type_id]
         current_pack.append(b_code[7:7 + info_bits_nr])
         if length_type_id == "0":
-            sub_pack_bits = int(current_pack[-1], 2)
+            # sub_pack_bits = int(current_pack[-1], 2)  # not needed?
             packets.append(current_pack)
-            parse_next_pack(b_code[7 + info_bits_nr:7 + info_bits_nr + sub_pack_bits], packets)
+            parse_next_pack(b_code[7 + info_bits_nr:], packets)
         elif length_type_id == "1":
             # sub_pack_nr = int(current_pack[-1], 2)  # not needed?
             packets.append(current_pack)
@@ -72,15 +78,26 @@ def parse_next_pack(b_code: str, packets: list):
 
 def solve_a(puzzle: MyPuzzle):
     answer_a = sum_packet_versions(puzzle.input_lines)
-    # puzzle.submit_a(answer_a)
+    puzzle.submit_a(answer_a)
+
+
+def run_packet_operations(inputs: list[str]) -> int:
+    packets = parse_hex_packs(inputs[0])
+    result = analyse_packet_operations(packets)
+    return result
+
+
+def analyse_packet_operations(packets: list[list[str]]) -> int:
+    # TODO: group packets and run PACKET_OPERATION functions in order (inner to outer)
+    pass
 
 
 def solve_b(puzzle: MyPuzzle):
-    answer_b = (puzzle.input_lines)
+    answer_b = run_packet_operations(puzzle.input_lines)
     # puzzle.submit_b(answer_b)
 
 
 if __name__ == "__main__":
     my_puzzle = get_todays_puzzle(DAY)
     # solve_a(my_puzzle)
-    # solve_b(my_puzzle)
+    solve_b(my_puzzle)

@@ -325,7 +325,8 @@ that is encoded crazy complicated, but you will have to unpack it.
 Start by identifying all sub-packets of your packet and summing up the version numbers.
 
 ### Part Two
-Short description...
+Well that was easy (*cough cough*), now run all the operations given by full the chain
+in order to find the desired answer!
 
 [top &#8593;](#top)
 

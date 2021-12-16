@@ -1,10 +1,6 @@
 import pytest
 
-from my_advent.day16 import sum_packet_versions
-
-EXAMPLE_INPUT = [
-    "D2FE28",  # example_result = 2021
-]
+from my_advent.day16 import sum_packet_versions, run_packet_operations
 
 
 @pytest.mark.parametrize(
@@ -23,6 +19,19 @@ def test_example_a(hex_input, result):
     assert sum_packet_versions(hex_input) == result
 
 
-def test_example_b():
-    example_result = 0
-    assert a(EXAMPLE_INPUT) == example_result
+@pytest.mark.parametrize(
+    ("hex_input", "result"),
+    [
+        (["D2FE28"], 2021),
+        (["C200B40A82"], 3),
+        (["04005AC33890"], 54),
+        (["880086C3E88112"], 7),
+        (["CE00C43D881120"], 9),
+        (["D8005AC2A8F0"], 1),
+        (["F600BC2D8F"], 0),
+        (["9C005AC2F8F0"], 0),
+        (["9C0141080250320F1802104A08"], 1),
+    ]
+)
+def test_example_b(hex_input, result):
+    assert run_packet_operations(hex_input) == result
