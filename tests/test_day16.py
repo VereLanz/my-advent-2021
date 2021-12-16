@@ -1,6 +1,6 @@
 import pytest
 
-from my_advent.day16 import sum_packet_versions, run_packet_operations
+from my_advent.day16 import sum_packet_versions, analyse_packets
 
 
 @pytest.mark.parametrize(
@@ -34,4 +34,4 @@ def test_example_a(hex_input, result):
     ]
 )
 def test_example_b(hex_input, result):
-    assert run_packet_operations(hex_input) == result
+    assert analyse_packets(hex_input) == result

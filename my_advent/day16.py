@@ -11,9 +11,9 @@ PACKET_OPERATION = {
     2: min,
     3: max,
     4: lambda x: int("".join(x), 2),
-    5: lambda x, y: int(x > y),
-    6: lambda x, y: int(x < y),
-    7: lambda x, y: int(x == y),
+    5: lambda x: int(x[0] > x[1]),
+    6: lambda x: int(x[0] < x[1]),
+    7: lambda x: int(x[0] == x[1]),
 }
 
 LENGTH_TYPE = {
@@ -39,12 +39,10 @@ def parse_hex_packs(hex_code: str) -> list[Union[str, list[str]]]:
     packets = []
     # calls itself recursively until all (sub-)packs have been analysed
     parse_next_pack(b_code, packets)
-    print(packets)
     return packets
 
 
 def parse_next_pack(b_code: str, packets: list):
-    print(b_code)
     if len(b_code) < 11:
         # all sub-packets have finished, this is padding
         return
@@ -81,20 +79,57 @@ def solve_a(puzzle: MyPuzzle):
     puzzle.submit_a(answer_a)
 
 
-def run_packet_operations(inputs: list[str]) -> int:
+def analyse_packets(inputs: list[str]) -> int:
     packets = parse_hex_packs(inputs[0])
-    result = analyse_packet_operations(packets)
+    result = run_packet_operations(packets)
     return result
 
 
-def analyse_packet_operations(packets: list[list[str]]) -> int:
-    # TODO: group packets and run PACKET_OPERATION functions in order (inner to outer)
-    pass
+def run_packet_operations(packets: list[list[str]]) -> int:
+    op_types = [int(packet[1], 2) for packet in packets]
+    operator_rels = {}
+    for i, op_type in reversed(list(enumerate(op_types))):
+        if op_type != 4:
+            relations = []
+            for j in range(i + 1, len(op_types)):
+                if op_types[j] != 4:
+                    break
+                relations.append(j)
+            if not relations:
+                for j in range(i + 1, len(op_types)):
+                    if isinstance(operator_rels[j], list):
+                        relations.append(j)
+                    if packets[i][-2] == "1" and len(relations) == int(packets[i][-1], 2):
+                        break
+                    # TODO: how to get the correct relations for type 0 operators...
+                    # elif packets[i][-2] == "0"
+            operator_rels[i] = relations.copy()
+        elif op_type == 4:
+            operator_rels[i] = PACKET_OPERATION[op_type](packets[i][2:])
+    print(operator_rels)
+
+    operators = [(idx, val) for idx, val in operator_rels.items() if isinstance(val, list)]
+    while len(operators) > 0:
+        print(operators)
+        for idx, val in operators:
+            run = True
+            operands = []
+            for op_idx in val:
+                operand = operator_rels[op_idx]
+                operands.append(operand)
+                if isinstance(operand, list):
+                    run = False
+            if run:
+                print(idx, operands, op_types[idx])
+                operator_rels[idx] = PACKET_OPERATION[op_types[idx]](operands)
+        operators = [(idx, val) for idx, val in operator_rels.items() if isinstance(val, list)]
+
+    return operator_rels[0]  # index 0 is always the last operation
 
 
 def solve_b(puzzle: MyPuzzle):
-    answer_b = run_packet_operations(puzzle.input_lines)
-    # puzzle.submit_b(answer_b)
+    answer_b = analyse_packets(puzzle.input_lines)
+    puzzle.submit_b(answer_b)
 
 
 if __name__ == "__main__":
