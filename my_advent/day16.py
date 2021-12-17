@@ -97,7 +97,6 @@ def run_packet_operations(packets: list[list[str]]) -> int:
 
     # running the evaluations of all relations from back to front
     result = evaluate_operations(operator_rels, op_types, packets)
-    print(len(packets), len(all_relations), len(set(all_relations)))
     return result
 
 
@@ -123,6 +122,9 @@ def find_relations(
         j = i + 1
         while j < len(packets):
             packs_len += len("".join(packets[j]))
+            if int(packets[j][1], 2) == 4:
+                # to account for the thrown away signal bits in literal bit groups
+                packs_len += len(packets[j][2:])
             if packs_len > sub_bits:
                 break
             if j not in all_relations:
@@ -134,7 +136,9 @@ def find_relations(
 
 
 def evaluate_operations(
-        operator_rels: dict[int, Union[int, list[int]]], op_types: list[int], packets
+        operator_rels: dict[int, Union[int, list[int]]],
+        op_types: list[int],
+        packets: list[list[str]]
 ) -> int:
     values = dict()
     for i in reversed(range(len(packets))):
@@ -150,12 +154,10 @@ def evaluate_operations(
 
 def solve_b(puzzle: MyPuzzle):
     answer_b = analyse_packets(puzzle.input_lines)
-    print(answer_b)
-    # puzzle.submit_b(answer_b)
-    # 18234816433587  NO
+    puzzle.submit_b(answer_b)
 
 
 if __name__ == "__main__":
     my_puzzle = get_todays_puzzle(DAY)
     # solve_a(my_puzzle)
-    solve_b(my_puzzle)
+    # solve_b(my_puzzle)

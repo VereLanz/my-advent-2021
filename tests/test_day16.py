@@ -31,6 +31,7 @@ def test_example_a(hex_input, result):
         (["F600BC2D8F"], 0),
         (["9C005AC2F8F0"], 0),
         (["9C0141080250320F1802104A08"], 1),
+        (["000294200841022044088110220440881102204408811020"], 2),  # thx reddit helper!
     ]
 )
 def test_example_b(hex_input, result):
