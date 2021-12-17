@@ -1,4 +1,4 @@
-from my_advent.day17 import a
+from my_advent.day17 import shoot_high
 
 EXAMPLE_INPUT = [
     "target area: x=20..30, y=-10..-5",
@@ -7,7 +7,7 @@ EXAMPLE_INPUT = [
 
 def test_example_a():
     example_result = 45  # starting velocity 6,9
-    assert (EXAMPLE_INPUT) == example_result
+    assert shoot_high(EXAMPLE_INPUT) == example_result
 
 
 def test_example_b():
