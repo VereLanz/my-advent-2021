@@ -7,12 +7,14 @@ DAY = 17
 
 def shoot_high(inputs: list[str]) -> int:
     target_area = parse_target_area(inputs)
-    try_coords = []
 
-    for x, y in try_coords:
-        makes_it, max_y = try_shot((x, y), target_area)
-        if makes_it:
-            return max_y
+    highest_y = find_highest_y(target_area["y_range"])
+    steps = find_steps_for_y(highest_y)
+    good_x = find_x_for_steps(steps, target_area["x_range"])
+
+    makes_it, max_y = try_shot((good_x, highest_y), steps, target_area)
+    if makes_it:
+        return max_y
     return 0
 
 
@@ -24,18 +26,25 @@ def parse_target_area(inputs: list[str]) -> dict[str, range]:
             "y_range": range(int(y_min), int(y_max) + 1)}
 
 
+def find_highest_y(target_y: range) -> int:
+    highest_possible_y = list(target_y)[-1]
+    pass
+
+
 def find_x_for_steps(steps: int, target_x: range) -> int:
     # we'll aim for near minimum in general to get a high y (needs a few steps)
     min_x = list(target_x)[0]
     mean_x_vel = min_x / steps
     start_x = round(mean_x_vel + steps / 2)
-    drag = steps * start_x - sum(range(steps)) if start_x >= (steps - 1) else 0  # TODO
+    if start_x < steps:
+        drag = sum(range(start_x)) + (steps - start_x) * start_x
+    else:
+        drag = sum(range(steps))
     assert start_x * steps - drag in target_x
     return start_x
 
 
-def find_highest_y_steps(target_y: range) -> tuple[int, int]:
-    # we'll just define a plausible range
+def find_steps_for_y(y: int) -> int:
     pass
 
 
