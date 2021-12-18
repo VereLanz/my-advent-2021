@@ -1,5 +1,3 @@
-import math
-
 from my_advent import get_todays_puzzle, MyPuzzle
 
 DAY = 17
@@ -8,14 +6,11 @@ DAY = 17
 def shoot_high(inputs: list[str]) -> int:
     target_area = parse_target_area(inputs)
 
-    highest_y = find_highest_y(target_area["y_range"])
-    steps = find_steps_for_y(highest_y)
-    good_x = find_x_for_steps(steps, target_area["x_range"])
+    highest_y_start = abs(min(target_area["y_range"])) - 1
+    steps = highest_y_start * 2 + 2
+    max_y = sum(range(highest_y_start + 1))
 
-    makes_it, max_y = try_shot((good_x, highest_y), steps, target_area)
-    if makes_it:
-        return max_y
-    return 0
+    return max_y
 
 
 def parse_target_area(inputs: list[str]) -> dict[str, range]:
@@ -24,11 +19,6 @@ def parse_target_area(inputs: list[str]) -> dict[str, range]:
     y_min, y_max = y_area.replace("y=", "").split("..")
     return {"x_range": range(int(x_min), int(x_max) + 1),
             "y_range": range(int(y_min), int(y_max) + 1)}
-
-
-def find_highest_y(target_y: range) -> int:
-    highest_possible_y = list(target_y)[-1]
-    pass
 
 
 def find_x_for_steps(steps: int, target_x: range) -> int:
@@ -44,19 +34,9 @@ def find_x_for_steps(steps: int, target_x: range) -> int:
     return start_x
 
 
-def find_steps_for_y(y: int) -> int:
-    pass
-
-
-def try_shot(
-    start_velocity: tuple[int, int], steps: int, target_area: dict[str, range]
-) -> tuple[bool, int]:
-    pass
-
-
 def solve_a(puzzle: MyPuzzle):
     answer_a = shoot_high(puzzle.input_lines)
-    # puzzle.submit_a(answer_a)
+    puzzle.submit_a(answer_a)
 
 
 def solve_b(puzzle: MyPuzzle):
