@@ -342,7 +342,8 @@ You also want it to look cool. Find the highest possible position your probe can
 reach with a starting velocity while still landing inside the target area.
 
 ### Part Two
-Short description...
+Okay, maybe a trick shot isn't the smartest idea. What is smart to find out every 
+possible start value combination that will land in the target area. Do that now!
 
 [top &#8593;](#top)
 
